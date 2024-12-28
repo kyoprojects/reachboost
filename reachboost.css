@@ -1,0 +1,226 @@
+/* global */
+
+.primary-heading {
+  display: inline-block;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), #333333);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.primary-heading.light {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.005), #ffffff);
+  background-clip: text;
+}
+
+.heading-highlight {
+  background: linear-gradient(235deg, #8636f8 2%, #f020b3 35%, #f8475e 67%, #ff9421 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0.8;
+}
+
+.gradient-border-label-container {
+  border-radius: 99px;
+  background: radial-gradient(circle, #f8475e 0%, #963d7f 25%, #b42dd0 43%, #d226d0 63%, #e12b3a 84%, #6821ff 100%);
+  background-color: #fff;
+}
+
+.primary-btn {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  /* font-family: var(--font-geist-numbers), var(--font-suisse); */
+  /* font-feature-settings: normal;
+  font-variation-settings: normal; */
+  -webkit-tap-highlight-color: transparent;
+  --font-geist-numbers: 'geistNumbers';
+  --font-suisse: 'suisse', 'suisse Fallback';
+  --font-soehne-mono: 'soehneMono';
+  --light: initial;
+  --dark: ;
+  --shiki-color-text: #fff;
+  --shiki-token-function: #bab1ff;
+  --shiki-token-keyword: #bab1ff;
+  --shiki-token-string: #5de3ff;
+  --shiki-token-string-expression: #5de3ff;
+  --shiki-token-constant: #86ef9b;
+  --shiki-token-parameter: #86ef9b;
+  --shiki-token-link: #86ef9b;
+  --shiki-token-comment: #9394a1;
+  --shiki-token-punctuation: #b7b8c2;
+  -webkit-font-smoothing: antialiased;
+  --root-bg: var(--light, #f7f7f8) var(--dark, #131316);
+  font-synthesis-weight: none;
+  --header-mt: 2.5rem;
+  --post-0-active: 1;
+  --root-pr: 0px;
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
+  box-sizing: border-box;
+  border: 0 solid #d9d9de;
+  text-decoration: inherit;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* border-radius: 0.375rem; */
+  border-radius: 99px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(108 71 255 / var(--tw-bg-opacity, 1));
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  text-align: left;
+  /* font-size: 0.8125rem; */
+  line-height: 1.5rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  --tw-shadow: 0 1px hsla(0, 0%, 100%, 0.07) inset, 0 1px 3px rgba(33, 33, 38, 0.2);
+  --tw-shadow-colored: inset 0 1px var(--tw-shadow-color), 0 1px 3px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(108 71 255 / var(--tw-ring-opacity, 1));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0.36, 0, 1);
+}
+
+/* page */
+
+.circle-pulse {
+  background: url('https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/674a4e8cf44d887873f550ff_Group%2029.png');
+  background-size: cover;
+  background-position: center;
+
+  /* Radial gradient mask positioned at the top with reduced visibility */
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0) 70%);
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+
+  mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0) 70%);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+
+  /* Ensure transparency actually works */
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+
+  /* Prevent unwanted artifacts */
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+  position: relative;
+  opacity: 0.7; /* Lower the overall opacity */
+}
+
+.circle-pulse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Radial gradient overlay with lower opacity and fade */
+  background: radial-gradient(circle at 50% 0%, rgba(187, 165, 253, 0.4) 30%, rgba(187, 165, 253, 0) 70%);
+  pointer-events: none; /* Ensure no interaction with overlay */
+  z-index: 2;
+  opacity: 0.5; /* Reduce visibility further */
+  filter: blur(2px); /* Add a soft blur for subtle effect */
+}
+
+.circle-pulse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Radial gradient overlay with center positioned at top */
+  background: radial-gradient(circle at 50% 0%, rgba(187, 165, 253, 0.6) 30%, rgba(187, 165, 253, 0) 60%);
+  pointer-events: none; /* Ensure no interaction with overlay */
+  z-index: 2;
+}
+
+/* .gradient-border-badge {
+  border-image: linear-gradient(90deg, #33b6ff 0%, #006acc 50%, #4c89ff 100%);
+  border-image-slice: 1;
+  border-radius: 10px !important;
+  border: 2px solid transparent;
+} */
+
+/* .gradient-border-badge {
+  position: relative;
+  padding: 10px 20px;
+  background-color: transparent;
+  border-radius: 10px;
+  z-index: 1;
+  display: inline-block;
+}
+
+.gradient-border-badge::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(90deg, #33b6ff 0%, #006acc 50%, #4c89ff 100%);
+  border-radius: 14px;
+  z-index: -1;
+  pointer-events: none;
+} */
