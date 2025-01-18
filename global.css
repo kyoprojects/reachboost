@@ -8,6 +8,10 @@
   color: transparent;
 } */
 
+.sticky-header.hidden {
+  opacity: 0 !important;
+}
+
 .primary-heading.light {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.005), #ffffff);
   background-clip: text;
