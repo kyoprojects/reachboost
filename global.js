@@ -29,18 +29,16 @@ async function initGsap() {
   const header = document.querySelector('[navbar="floating-header"]');
   const headerStart = document.querySelector('[navbar="header-startstate"][variant="floating-header"]');
 
-  // Initial states
   gsap.set(megaMenu, { height: 0, scaleY: 0, autoAlpha: 0, transformOrigin: 'top center' });
   gsap.set(headerStart, { display: 'flex', autoAlpha: 1, height: 'auto' });
 
-  // Animation timeline for showing mega menu
   const showMegaMenu = gsap
     .timeline({ paused: true })
     .to(headerStart, {
       height: 0,
       autoAlpha: 0,
       duration: 0.2,
-      ease: 'power1.out'
+      ease: 'power4.in'
     })
     .to(
       megaMenu,
@@ -49,49 +47,39 @@ async function initGsap() {
         scaleY: 1,
         autoAlpha: 1,
         duration: 0.2,
-        ease: 'power1.out'
+        ease: 'power4.in'
       },
-      '<' // Ensures this animation starts simultaneously with the above
-    );
-  // .set(headerStart, { display: 'none' });
+      '<'
+    )
+    .to(header, { scale: 1.02, duration: 0.2, ease: 'power4.in' }, '<');
 
-  // Animation timeline for hiding mega menu
   const hideMegaMenu = gsap
     .timeline({ paused: true })
     .to(megaMenu, {
-      height: 0, // Collapse height
-      scaleY: 0, // Smooth vertical scaling
-      autoAlpha: 0, // Fade out
+      height: 0,
+      scaleY: 0,
+      autoAlpha: 0,
       duration: 0.2,
-      ease: 'power1.in'
+      ease: 'power4.out'
     })
     .to(
       headerStart,
       {
-        autoAlpha: 1, // Fade in headerStart
-        height: 'auto', // Restore original height
+        autoAlpha: 1,
+        height: 'auto',
         duration: 0.2,
-        ease: 'power1.in'
+        ease: 'power4.out'
       },
       '<'
-    );
-  // .set(megaMenu, { display: 'none' }) // Ensure it doesn’t occupy space
-  // .set(headerStart, { display: 'flex' }); // Ensure it’s visible
+    )
+    .to(header, { scale: 1, duration: 0.2, ease: 'power4.out' }, '<');
 
-  // Event Listeners
   triggerMenu.addEventListener('mouseenter', () => {
     showMegaMenu.restart();
   });
-
   header.addEventListener('mouseleave', () => {
     hideMegaMenu.restart();
   });
-  // megaMenu.addEventListener('mouseleave', () => {
-  //   hideMegaMenu.restart();
-  // });
-  // megaMenu.addEventListener('mouseenter', () => {
-  //   showMegaMenu.restart();
-  // });
 }
 
 initGsap();
