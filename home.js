@@ -77,42 +77,6 @@ async function initForms() {
 initForms();
 
 async function initGsap() {
-  // header megamenu
-  const triggerMenu = document.querySelector('#trigger-menu');
-  const megaMenu = document.querySelector('#mega-menu');
-
-  const showMegaMenu = gsap.timeline({ paused: true }).to(megaMenu, {
-    height: 'auto',
-    opacity: 1,
-    visibility: 'visible',
-    duration: 0.3,
-    ease: 'power2.out'
-  });
-
-  const hideMegaMenu = gsap.timeline({ paused: true }).to(megaMenu, {
-    opacity: 0,
-    height: 0,
-    visibility: 'hidden',
-    duration: 0.3,
-    ease: 'power2.in'
-  });
-
-  triggerMenu.addEventListener('mouseenter', () => {
-    showMegaMenu.restart();
-  });
-
-  triggerMenu.addEventListener('mouseleave', () => {
-    hideMegaMenu.restart();
-  });
-
-  megaMenu.addEventListener('mouseleave', () => {
-    hideMegaMenu.restart();
-  });
-
-  megaMenu.addEventListener('mouseenter', () => {
-    showMegaMenu.restart();
-  });
-
   // hero animation
 
   gsap.registerPlugin(MotionPathPlugin);
