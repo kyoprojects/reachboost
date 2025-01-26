@@ -68,10 +68,12 @@ async function initGsap() {
         },
         '<'
       )
-      .to(header, { scale: 1.02, duration: 0.2, ease: 'power4.in' }, '<');
+      // wait for 0.1sec
+      .to(header, { scale: 1.02, duration: 0.2, ease: 'power4.in' }, '-=0.2');
 
     const hideMegaMenu = gsap
       .timeline({ paused: true })
+      .to(header, { scale: 1, duration: 0.1, ease: 'power4.out' })
       .to(megaMenu, {
         height: 0,
         scaleY: 0,
@@ -88,8 +90,7 @@ async function initGsap() {
           ease: 'power4.out'
         },
         '<'
-      )
-      .to(header, { scale: 1, duration: 0.2, ease: 'power4.out' }, '<');
+      );
 
     triggerMenu.addEventListener('mouseenter', () => {
       showMegaMenu.restart();

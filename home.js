@@ -29,7 +29,7 @@ async function initForms() {
 
     if (submitButton) {
       submitButton.addEventListener('click', event => {
-        handleTrialSignupEmail(event, form);
+        // handleTrialSignupEmail(event, form);
       });
     }
     if (emailInput) {
