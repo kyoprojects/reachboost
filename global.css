@@ -147,6 +147,12 @@
   transition-timing-function: cubic-bezier(0.4, 0.36, 0, 1);
 }
 
+.primary-btn.white {
+  border-color: white !important;
+  outline-color: white !important;
+  --tw-ring-shadow: white !important;
+}
+
 .spinner {
   animation: spin 1.5s linear infinite;
 }
