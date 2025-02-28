@@ -14,7 +14,7 @@ async function initForms() {
     //   modal.style.display = 'flex';
     // }
 
-    const emailInput = form.querySelector('input[name="email-prefill"]');
+    const emailInput = form.querySelector('input[formtrigger="trial-signup-email-input"]');
     const emailValue = emailInput ? emailInput.value : '';
     window.location.href = `/signup?email=${emailValue}`;
 
