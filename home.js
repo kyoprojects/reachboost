@@ -28,7 +28,7 @@ async function initForms() {
   }
 
   document.querySelectorAll('[formtrigger=trial-signup-email]').forEach(form => {
-    trialSignupForm.addEventListener('submit', event => {
+    form.addEventListener('submit', event => {
       event.preventDefault();
     });
     const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
