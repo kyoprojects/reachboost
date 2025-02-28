@@ -16,7 +16,7 @@ async function initForms() {
 
     const emailInput = form.querySelector('input[formtrigger="trial-signup-email-input"]');
     const emailValue = emailInput ? emailInput.value : '';
-    window.location.href = `/signup?email=${emailValue}`;
+    window.location.href = `/sign-up?email=${emailValue}`;
 
     // const waitlistEmailInput = document.querySelector('[input=waitlist-signup-email]');
     // if (waitlistEmailInput) {
