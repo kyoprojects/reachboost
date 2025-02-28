@@ -1,26 +1,28 @@
 async function initForms() {
-  function closeModal(modalName) {
-    const modal = document.querySelector(`[popupmodal=${modalName}]`);
-    if (modal) {
-      modal.style.display = 'none';
-    }
-  }
+  // function closeModal(modalName) {
+  //   const modal = document.querySelector(`[popupmodal=${modalName}]`);
+  //   if (modal) {
+  //     modal.style.display = 'none';
+  //   }
+  // }
 
   function handleTrialSignupEmail(event, form) {
     event.preventDefault();
-    const modal = document.querySelector('[popupmodal=waitlist-signup]');
-    document.querySelector('[input=waitlist-signup-name]').focus();
-    if (modal) {
-      modal.style.display = 'flex';
-    }
+    // const modal = document.querySelector('[popupmodal=waitlist-signup]');
+    // document.querySelector('[input=waitlist-signup-name]').focus();
+    // if (modal) {
+    //   modal.style.display = 'flex';
+    // }
 
     const emailInput = form.querySelector('input[name="email-prefill"]');
     const emailValue = emailInput ? emailInput.value : '';
-    const waitlistEmailInput = document.querySelector('[input=waitlist-signup-email]');
-    if (waitlistEmailInput) {
-      waitlistEmailInput.value = emailValue;
-      waitlistEmailInput.style.backgroundColor = '#f0f0f0';
-    }
+    window.location.href = `/signup?email=${emailValue}`;
+
+    // const waitlistEmailInput = document.querySelector('[input=waitlist-signup-email]');
+    // if (waitlistEmailInput) {
+    //   waitlistEmailInput.value = emailValue;
+    //   waitlistEmailInput.style.backgroundColor = '#f0f0f0';
+    // }
   }
 
   document.querySelectorAll('[formtrigger=trial-signup-email]').forEach(form => {
@@ -29,7 +31,7 @@ async function initForms() {
 
     if (submitButton) {
       submitButton.addEventListener('click', event => {
-        // handleTrialSignupEmail(event, form);
+        handleTrialSignupEmail(event, form);
       });
     }
     if (emailInput) {
@@ -41,29 +43,29 @@ async function initForms() {
     }
   });
 
-  const trialSignupForm = document.querySelector('[formtrigger=trial-signup]');
-  if (trialSignupForm) {
-    trialSignupForm.addEventListener('submit', event => {
-      event.preventDefault();
-      const formData = new FormData(trialSignupForm);
-      const data = {};
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
+  // const trialSignupForm = document.querySelector('[formtrigger=trial-signup]');
+  // if (trialSignupForm) {
+  //   trialSignupForm.addEventListener('submit', event => {
+  //     event.preventDefault();
+  //     const formData = new FormData(trialSignupForm);
+  //     const data = {};
+  //     formData.forEach((value, key) => {
+  //       data[key] = value;
+  //     });
 
-      fetch('https://api.misc.sleak.chat/webhook/waitlist-signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(response => response.json())
-        .then(result => {
-          console.log('Form submitted successfully:', result);
-        });
-    });
-  }
+  //     fetch('https://api.misc.sleak.chat/webhook/waitlist-signup', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(data)
+  //     })
+  //       .then(response => response.json())
+  //       .then(result => {
+  //         console.log('Form submitted successfully:', result);
+  //       });
+  //   });
+  // }
 
   // Event listener for elements with the attribute [popupmodal-closetrigger={name}]
   document.querySelectorAll('[popupmodal-closetrigger]').forEach(closeTrigger => {
