@@ -80,7 +80,7 @@ async function initForms() {
     });
   });
 }
-initForms();
+// initForms();
 
 async function initGsap() {
   // hero animation
