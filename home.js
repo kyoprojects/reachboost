@@ -1,85 +1,85 @@
-async function initForms() {
-  // function closeModal(modalName) {
-  //   const modal = document.querySelector(`[popupmodal=${modalName}]`);
-  //   if (modal) {
-  //     modal.style.display = 'none';
-  //   }
-  // }
+// async function initForms() {
+//   // function closeModal(modalName) {
+//   //   const modal = document.querySelector(`[popupmodal=${modalName}]`);
+//   //   if (modal) {
+//   //     modal.style.display = 'none';
+//   //   }
+//   // }
 
-  function handleTrialSignupEmail(event, form) {
-    event.preventDefault();
-    // const modal = document.querySelector('[popupmodal=waitlist-signup]');
-    // document.querySelector('[input=waitlist-signup-name]').focus();
-    // if (modal) {
-    //   modal.style.display = 'flex';
-    // }
+//   function handleTrialSignupEmail(event, form) {
+//     event.preventDefault();
+//     // const modal = document.querySelector('[popupmodal=waitlist-signup]');
+//     // document.querySelector('[input=waitlist-signup-name]').focus();
+//     // if (modal) {
+//     //   modal.style.display = 'flex';
+//     // }
 
-    const emailInput = form.querySelector('input[formtrigger="trial-signup-email-input"]');
-    const emailValue = emailInput ? emailInput.value : '';
-    console.log(emailValue);
-    window.location.href = `/sign-up?email=${emailValue}`;
+//     const emailInput = form.querySelector('input[formtrigger="trial-signup-email-input"]');
+//     const emailValue = emailInput ? emailInput.value : '';
+//     console.log(emailValue);
+//     window.location.href = `/sign-up?email=${emailValue}`;
 
-    // const waitlistEmailInput = document.querySelector('[input=waitlist-signup-email]');
-    // if (waitlistEmailInput) {
-    //   waitlistEmailInput.value = emailValue;
-    //   waitlistEmailInput.style.backgroundColor = '#f0f0f0';
-    // }
-  }
+//     // const waitlistEmailInput = document.querySelector('[input=waitlist-signup-email]');
+//     // if (waitlistEmailInput) {
+//     //   waitlistEmailInput.value = emailValue;
+//     //   waitlistEmailInput.style.backgroundColor = '#f0f0f0';
+//     // }
+//   }
 
-  document.querySelectorAll('[formtrigger=trial-signup-email]').forEach(form => {
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-    });
-    const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
-    const emailInput = form.querySelector('input[formtrigger=trial-signup-email-input]');
+//   document.querySelectorAll('[formtrigger=trial-signup-email]').forEach(form => {
+//     form.addEventListener('submit', event => {
+//       event.preventDefault();
+//     });
+//     const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+//     const emailInput = form.querySelector('input[formtrigger=trial-signup-email-input]');
 
-    if (submitButton) {
-      submitButton.addEventListener('click', event => {
-        handleTrialSignupEmail(event, form);
-      });
-    }
-    if (emailInput) {
-      emailInput.addEventListener('keydown', event => {
-        if (event.key === 'Enter') {
-          handleTrialSignupEmail(event, form);
-        }
-      });
-    }
-  });
+//     if (submitButton) {
+//       submitButton.addEventListener('click', event => {
+//         handleTrialSignupEmail(event, form);
+//       });
+//     }
+//     if (emailInput) {
+//       emailInput.addEventListener('keydown', event => {
+//         if (event.key === 'Enter') {
+//           handleTrialSignupEmail(event, form);
+//         }
+//       });
+//     }
+//   });
 
-  // const trialSignupForm = document.querySelector('[formtrigger=trial-signup]');
-  // if (trialSignupForm) {
-  //   trialSignupForm.addEventListener('submit', event => {
-  //     event.preventDefault();
-  //     const formData = new FormData(trialSignupForm);
-  //     const data = {};
-  //     formData.forEach((value, key) => {
-  //       data[key] = value;
-  //     });
+//   // const trialSignupForm = document.querySelector('[formtrigger=trial-signup]');
+//   // if (trialSignupForm) {
+//   //   trialSignupForm.addEventListener('submit', event => {
+//   //     event.preventDefault();
+//   //     const formData = new FormData(trialSignupForm);
+//   //     const data = {};
+//   //     formData.forEach((value, key) => {
+//   //       data[key] = value;
+//   //     });
 
-  //     fetch('https://api.misc.sleak.chat/webhook/waitlist-signup', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify(data)
-  //     })
-  //       .then(response => response.json())
-  //       .then(result => {
-  //         console.log('Form submitted successfully:', result);
-  //       });
-  //   });
-  // }
+//   //     fetch('https://api.misc.sleak.chat/webhook/waitlist-signup', {
+//   //       method: 'POST',
+//   //       headers: {
+//   //         'Content-Type': 'application/json'
+//   //       },
+//   //       body: JSON.stringify(data)
+//   //     })
+//   //       .then(response => response.json())
+//   //       .then(result => {
+//   //         console.log('Form submitted successfully:', result);
+//   //       });
+//   //   });
+//   // }
 
-  // Event listener for elements with the attribute [popupmodal-closetrigger={name}]
-  document.querySelectorAll('[popupmodal-closetrigger]').forEach(closeTrigger => {
-    const modalName = closeTrigger.getAttribute('popupmodal-closetrigger');
+//   // Event listener for elements with the attribute [popupmodal-closetrigger={name}]
+//   document.querySelectorAll('[popupmodal-closetrigger]').forEach(closeTrigger => {
+//     const modalName = closeTrigger.getAttribute('popupmodal-closetrigger');
 
-    closeTrigger.addEventListener('click', () => {
-      closeModal(modalName);
-    });
-  });
-}
+//     closeTrigger.addEventListener('click', () => {
+//       closeModal(modalName);
+//     });
+//   });
+// }
 // initForms();
 
 async function initGsap() {
@@ -256,6 +256,149 @@ async function initGsap() {
   setTimeout(() => {
     setInterval(rotateNotices, 4500);
   }, 1200);
+
+  //
+  const stepsData = [
+    { type: 'step', title: 'Visit profile', status: 'Completed', content: 'Lorem ipsum', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+    { type: 'waitFor', title: 'Wait for 1 days', content: 'Lorem ipsum' },
+    { type: 'step', title: 'Send connection request', content: 'Lorem ipsum', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+    { type: 'waitFor', title: 'Wait for 2 days', content: 'Lorem ipsum' },
+    { type: 'step', title: 'Send follow-up message', content: 'Lorem ipsum', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+    { type: 'waitFor', title: 'Wait for 1 days', content: 'Lorem ipsum' }
+  ];
+
+  const container = document.querySelector('[config-container]');
+  const baseStep = document.querySelector('[config="base-step"]');
+  const baseWait = document.querySelector('[config="base-waitfor"]');
+
+  baseStep.remove();
+  baseWait.remove();
+
+  const stepItems = stepsData.filter(i => i.type === 'step');
+  const waitItems = stepsData.filter(i => i.type === 'waitFor');
+  let sIndex = 0;
+  let wIndex = 0;
+
+  function createStep(data) {
+    let c = baseStep.cloneNode(true);
+    c.style.removeProperty('display');
+    c.querySelector('[data="icon"]').src = data.icon || '';
+    c.querySelector('[data="title"]').textContent = data.title;
+    c.querySelector('[data="content"]').textContent = data.content;
+    c.querySelector('[data="status"]').style.display = 'none';
+    return c;
+  }
+
+  function createWait(data) {
+    let c = baseWait.cloneNode(true);
+    c.style.removeProperty('display');
+    c.querySelector('[data="text"]').textContent = data.title;
+    return c;
+  }
+
+  function getNextStep() {
+    let d = stepItems[sIndex % stepItems.length];
+    sIndex++;
+    return createStep(d);
+  }
+
+  function getNextWait() {
+    let d = waitItems[wIndex % waitItems.length];
+    wIndex++;
+    return createWait(d);
+  }
+
+  // Initial 3 items: step, wait, step
+  container.appendChild(getNextStep());
+  container.appendChild(getNextWait());
+  container.appendChild(getNextStep());
+
+  function updateActiveStep() {
+    let steps = container.querySelectorAll('.config-step');
+    steps.forEach(step => step.classList.remove('active')); // Remove from all
+    let lastStep = steps[steps.length - 1]; // Get the last step
+    if (lastStep) lastStep.classList.add('active'); // Apply only to the last step
+    if (lastStep) lastStep.querySelector('[data="status"]').style.display = 'flex';
+  }
+  updateActiveStep();
+
+  function rotateSteps() {
+    let items = Array.from(container.children);
+    if (items.length !== 3) return; // Ensure we always maintain 3 elements
+
+    let stepToRemove = items[2]; // Last element (step)
+    let waitToRemove = items[1]; // Middle element (wait)
+
+    gsap.to([stepToRemove, waitToRemove], {
+      opacity: 0,
+      y: 30, // Move down slightly further for a better exit feel
+      duration: 0.6, // Make exit animation slightly slower
+      ease: 'power3.inOut', // Smooth acceleration & deceleration
+      onComplete: () => {
+        stepToRemove.remove();
+        waitToRemove.remove();
+
+        let newStep = getNextStep();
+        let newWait = getNextWait();
+
+        // Set initial position & opacity for smooth appearance
+        gsap.set([newStep, newWait], { opacity: 0, y: -30 });
+
+        // Maintain Step → Wait → Step order
+        container.prepend(newStep);
+        container.insertBefore(newWait, container.children[1]);
+
+        // Smoothly animate the new elements in
+        gsap.to([newStep, newWait], {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power3.out', // Make entrance slightly softer
+          stagger: 0.1
+        });
+        setTimeout(() => {
+          updateActiveStep();
+        }, 60);
+      }
+    });
+  }
+
+  let interval;
+  function startRotation() {
+    if (interval) return; // Prevent multiple intervals
+    interval = setInterval(rotateSteps, 4000);
+  }
+
+  function stopRotation() {
+    clearInterval(interval);
+    interval = null;
+  }
+
+  function cleanUpOnFocus() {
+    let items = Array.from(container.children);
+
+    // If more than 3 elements exist (because of missed removals), clean up
+    while (items.length > 3) {
+      let excess = items.pop(); // Remove extra items from the bottom
+      excess.remove();
+    }
+
+    startRotation(); // Restart the interval safely
+  }
+
+  // Start animation loop
+  startRotation();
+
+  // Ensure cleanup happens when the user returns to the page
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      cleanUpOnFocus();
+    } else {
+      stopRotation();
+    }
+  });
+
+  //
 }
 
 initGsap();
