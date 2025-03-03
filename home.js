@@ -322,18 +322,31 @@ async function initGsap() {
   }
   updateActiveStep();
 
+  function animateHeightAndScale(element, toHeight, scaleEffect = false) {
+    gsap.fromTo(element, { height: 0, opacity: 0, scale: scaleEffect ? 0.3 : 1 }, { height: toHeight, opacity: 1, scale: 1, duration: 0.6, ease: 'power3.out' });
+  }
+
   function rotateSteps() {
     let items = Array.from(container.children);
-    if (items.length !== 3) return; // Ensure we always maintain 3 elements
+    if (items.length !== 3) return;
 
-    let stepToRemove = items[2]; // Last element (step)
-    let waitToRemove = items[1]; // Middle element (wait)
+    let stepToRemove = items[2]; // Last step element
+    let waitToRemove = items[1]; // Middle wait element
 
-    gsap.to([stepToRemove, waitToRemove], {
+    // Animate out: collapse height & shrink wait elements
+    gsap.to(waitToRemove, {
+      height: 0,
       opacity: 0,
-      y: 30, // Move down slightly further for a better exit feel
-      duration: 0.6, // Make exit animation slightly slower
-      ease: 'power3.inOut', // Smooth acceleration & deceleration
+      scale: 0.8, // Shrink out effect for wait steps
+      duration: 0.5,
+      ease: 'power3.inOut'
+    });
+
+    gsap.to(stepToRemove, {
+      height: 0,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power3.inOut',
       onComplete: () => {
         stepToRemove.remove();
         waitToRemove.remove();
@@ -341,24 +354,23 @@ async function initGsap() {
         let newStep = getNextStep();
         let newWait = getNextWait();
 
-        // Set initial position & opacity for smooth appearance
-        gsap.set([newStep, newWait], { opacity: 0, y: -30 });
-
-        // Maintain Step → Wait → Step order
+        // Append new elements before measuring height
         container.prepend(newStep);
         container.insertBefore(newWait, container.children[1]);
 
-        // Smoothly animate the new elements in
-        gsap.to([newStep, newWait], {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power3.out', // Make entrance slightly softer
-          stagger: 0.1
-        });
+        // Get natural height before setting it to 0
+        let stepHeight = newStep.scrollHeight;
+        let waitHeight = newWait.scrollHeight;
+
+        // Reset their position correctly
+        gsap.set([newStep, newWait], { height: 0, opacity: 0 });
+
+        // Expand elements smoothly
+        animateHeightAndScale(newStep, stepHeight);
+        animateHeightAndScale(newWait, waitHeight, true); // Apply scale effect for wait step
         setTimeout(() => {
           updateActiveStep();
-        }, 60);
+        }, 200);
       }
     });
   }
