@@ -378,7 +378,7 @@ async function initGsap() {
   let interval;
   function startRotation() {
     if (interval) return; // Prevent multiple intervals
-    interval = setInterval(rotateSteps, 4000);
+    interval = setInterval(rotateSteps, 4500);
   }
 
   function stopRotation() {
