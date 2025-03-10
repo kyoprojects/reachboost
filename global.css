@@ -7,6 +7,20 @@
   -webkit-background-clip: text;
   color: transparent;
 } */
+[flex-wrap] {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+[flex-wrap] > * {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.inline-wrap {
+  display: inline-block;
+}
 
 .sticky-header.hidden {
   opacity: 0 !important;
@@ -145,6 +159,16 @@
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0.36, 0, 1);
+}
+
+@media (max-width: 768px) {
+  .primary-btn.small {
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+    padding-top: 0.14rem !important;
+    padding-bottom: 0.14rem !important;
+    border-radius: 0.6rem !important;
+  }
 }
 
 .primary-btn.white {

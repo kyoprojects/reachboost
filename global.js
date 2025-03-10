@@ -38,6 +38,8 @@ $(document).ready(function () {
 });
 
 async function initGsap() {
+  let mm = gsap.matchMedia();
+
   const triggerMenu = document.querySelector('[navbar="megamenu-trigger"][variant="floating-header"]');
   const megaMenu = document.querySelector('[navbar="megamenu"][variant="floating-header"]');
   const header = document.querySelector('[navbar="floating-header"]');
@@ -129,6 +131,25 @@ async function initGsap() {
   }
 
   fixedModalHandling();
+
+  // mobile menu
+  mm.add('(max-width: 800px)', () => {
+    (async function showMobileMenu() {
+      let mobileMenuOpenState = false;
+      const openTriggers = document.querySelectorAll('#mobile-menu-btn');
+      const closeTrigger = document.querySelector('#mobile-menu-closebtn');
+      openTriggers.forEach(element => {
+        element.addEventListener('click', () => {
+          console.log('showww');
+          gsap.set('#mobile-menu', { display: 'flex', opacity: 0 });
+          gsap.to('#mobile-menu', { opacity: 1, duration: 0.2, autoAlpha: 1, ease: 'power4.out' });
+        });
+      });
+      closeTrigger.addEventListener('click', () => {
+        gsap.to('#mobile-menu', { opacity: 0, duration: 0.2, autoAlpha: 1, ease: 'power4.out', onComplete: () => gsap.set('#mobile-menu', { display: 'none' }) });
+      });
+    })();
+  });
 }
 
 initGsap();
