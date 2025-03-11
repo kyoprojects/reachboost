@@ -185,3 +185,42 @@
     transform: rotate(360deg);
   }
 }
+
+/* rich text */
+.rich-text-block * {
+  font-family: system-ui !important;
+}
+.rich-text-block h1 {
+  font-size: 24px !important;
+}
+.rich-text-block h2 {
+  font-size: 22px !important;
+}
+.rich-text-block h3 {
+  font-size: 20px !important;
+}
+.rich-text-block p {
+  font-size: 18px !important;
+  margin-bottom: 10px !important;
+  color: #595959 !important;
+  line-height: 28px !important;
+}
+.rich-text-block p a {
+  font-size: 18px !important;
+}
+.rich-text-block blockquote {
+  font-size: 16px !important;
+}
+.rich-text-block strong {
+  font-size: 16px !important;
+}
+.rich-text-block ul,
+.rich-text-block ol {
+  font-size: 16px !important;
+}
+.rich-text-block li {
+  font-size: 16px !important;
+}
+.rich-text-block a.button {
+  font-size: 14px !important;
+}
