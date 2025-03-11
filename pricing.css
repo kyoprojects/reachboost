@@ -1,0 +1,86 @@
+/* Ensures the label changes when the checkbox inside it is checked */
+#toggle-label:has(#toggle-annual:checked) {
+  background-color: #d0b9ff !important;
+}
+
+/* Here you can change the root styles to suit your own brand */
+:root {
+  --tooltip-height: 32px;
+  --tooltip-color: #000;
+  --tooltip-bg-color: #fbfcfe;
+  --tooltip-border-color: #e4e6f1;
+  --tooltip-corner-radius: 8px;
+  --tooltip-box-shadow: 0px 8px 20px rgba(141, 155, 190, 0.16);
+
+  --handle-height: 24px;
+  --handle-width: 24px;
+  --handle-box-shadow: 0px 8px 20px rgba(141, 155, 190, 0.16);
+  --handle-color: #fff;
+
+  --range-bar-height: 18px;
+  --range-bar-corner-radius: 20px;
+  --range-bar-color: #642eff;
+  --range-box-shadow: 0px 8px 20px rgba(141, 155, 190, 0.16);
+}
+
+/* -150% will show tool-tips at the bottom, you can swap these to top via the % amount. */
+.noUi-tooltip.bottom {
+  bottom: -150%;
+}
+/* These are some styles for the range bar, for example the 2px inner-shadow. Or the corner ends */
+.noUi-target {
+  background: #e4e6f1;
+  border-radius: 32px;
+  border: 0;
+  box-shadow: 0px 3px 2px -2px #1b114a14 inset;
+}
+.noUi-connects {
+  overflow: initial;
+}
+.noUi-connect {
+  background: var(--range-bar-color);
+  box-shadow: var(--range-box-shadow);
+  border-radius: 99px !important;
+}
+
+.noUi-handle {
+  width: var(--handle-width) !important;
+  height: var(--handle-height) !important;
+  border-radius: 50%;
+  border: 0;
+  box-shadow: none;
+  box-shadow: var(--handle-box-shadow);
+  cursor: pointer;
+  top: -3px !important;
+  background: var(--handle-color);
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+  display: none;
+}
+.noUi-horizontal {
+  height: var(--range-bar-height);
+}
+
+.noUi-tooltip {
+  height: var(--tooltip-height);
+  background: var(--tooltip-bg-color);
+  border: 1px solid var(--tooltip-border-color);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+  border-radius: var(--tooltip-corner-radius);
+  z-index: 10; /* Ensure it appears above other elements */
+}
+
+.noUi-connect {
+  background: var(--range-bar-color);
+  box-shadow: var(--range-box-shadow);
+  border-radius: var(--range-bar-corner-radius); /* Ensure always rounded */
+  border-top-left-radius: var(--range-bar-corner-radius);
+  border-bottom-left-radius: var(--range-bar-corner-radius);
+}
+
+.noUi-target {
+  border-radius: var(--range-bar-corner-radius);
+}
