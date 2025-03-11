@@ -5,12 +5,17 @@
     script.type = 'text/javascript';
     script.async = true;
     document.head.appendChild(script);
-    console.log('appended ', src);
+    console.log('Appended:', src);
   }
 
   const pages = ['pricing', 'about', 'contact'];
+  const locales = ['nl'];
+
   const pathSegments = window.location.pathname.split('/').filter(Boolean);
-  const page = pathSegments.length ? pathSegments[pathSegments.length - 1] : 'home';
+  const hasLocale = locales.includes(pathSegments[0]);
+  const page = hasLocale ? (pathSegments.length > 1 ? pathSegments[1] : 'home') : pathSegments.length ? pathSegments[0] : 'home';
+
+  console.log('page =', page);
 
   let baseUrl;
   if (window.location.hostname === 'www.reachboost.io') {
