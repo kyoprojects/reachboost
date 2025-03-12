@@ -258,14 +258,26 @@ async function initGsap() {
   }, 1200);
 
   //
-  const stepsData = [
-    { type: 'step', title: 'Visit profile', status: 'Completed', content: 'Monday 10:30', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
-    { type: 'waitFor', title: 'Wait for 1 day' },
-    { type: 'step', title: 'Send connection request', content: 'Hey {First Name}, I noticed...', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
-    { type: 'waitFor', title: 'Wait for 2 days' },
-    { type: 'step', title: 'Send follow-up message', content: "Appreciate the connection! Let's...", icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
-    { type: 'waitFor', title: 'Targeting new profile...' }
-  ];
+  const locale = window.location.pathname.includes('/nl') ? 'NL' : 'EN';
+
+  const stepsData =
+    locale === 'NL'
+      ? [
+          { type: 'step', title: 'Bezoek profiel', status: 'Completed', content: 'Maandag 10:30', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+          { type: 'waitFor', title: 'Wacht 1 dag' },
+          { type: 'step', title: 'Stuur connectie verzoek', content: 'Hey {First Name}, ik zie dat je…', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+          { type: 'waitFor', title: 'Wacht 2 dagen' },
+          { type: 'step', title: 'Stuur follow-up bericht', content: 'Dank voor het connecten! Hier heb je…', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+          { type: 'waitFor', title: 'Nieuwe doelgroep...' }
+        ]
+      : [
+          { type: 'step', title: 'Visit profile', status: 'Completed', content: 'Monday 10:30', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+          { type: 'waitFor', title: 'Wait for 1 day' },
+          { type: 'step', title: 'Send connection request', content: 'Hey {First Name}, I noticed...', icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+          { type: 'waitFor', title: 'Wait for 2 days' },
+          { type: 'step', title: 'Send follow-up message', content: "Appreciate the connection! Let's...", icon: 'https://cdn.prod.website-files.com/67014e966ac70f4e8a365764/677d9bbc500eda676d3918a7_message-circle-more%20(1).svg' },
+          { type: 'waitFor', title: 'Targeting new profile...' }
+        ];
 
   const container = document.querySelector('[config-container]');
   const baseStep = document.querySelector('[config="base-step"]');
