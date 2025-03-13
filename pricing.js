@@ -29,7 +29,7 @@ $(function () {
 
     if (priceTier !== lastPriceTier || isAnnual !== lastIsAnnual) {
       $('#price-business').animate({ opacity: 0, marginTop: '-10px' }, 150, function () {
-        $(this).text(unitPrice);
+        $(this).text(`€${unitPrice}`);
         $(this).css({ marginTop: '10px' }).animate({ opacity: 1, marginTop: '0px' }, 150);
       });
 
