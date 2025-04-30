@@ -1,4 +1,13 @@
 $(function () {
+  function updateSignupButtons(userCount, isAnnual) {
+    const frequency = isAnnual ? 'yearly' : 'monthly';
+    const signupUrl = `https://app.reachboost.io/users/sign_up?signup_type=direct&plan=business&frequency=${frequency}&quantity=${userCount}`;
+
+    document.querySelectorAll('[signup-button="pricing"]').forEach(button => {
+      button.href = signupUrl;
+    });
+  }
+
   $('#slider-single').css('display', 'none');
   $('<div></div>').insertAfter('#slider-single');
 
@@ -26,6 +35,8 @@ $(function () {
     let isAnnual = $('#toggle-annual').is(':checked');
     let priceTier = userCount <= 5 ? 'low' : 'high';
     let unitPrice = isAnnual ? (priceTier === 'low' ? 79 : 67) : priceTier === 'low' ? 99 : 84;
+
+    updateSignupButtons(userCount, isAnnual);
 
     if (priceTier !== lastPriceTier || isAnnual !== lastIsAnnual) {
       $('#price-business').animate({ opacity: 0, marginTop: '-10px' }, 150, function () {
