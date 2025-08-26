@@ -425,4 +425,6 @@ async function initGsap() {
   //
 }
 
-initGsap();
+const wrapper = document.querySelector('[campaign-animation-wrapper]');
+
+if (wrapper) initGsap();
